@@ -5,6 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npx --yes serve www -l 5173",
+    "validate": "node tools/validar.mjs",
+    "imagenes": "node tools/generar-imagenes.mjs",
     "android:add": "npx --yes @capacitor/cli add android",
     "android:sync": "npx --yes @capacitor/cli sync android",
     "android:open": "npx --yes @capacitor/cli open android"

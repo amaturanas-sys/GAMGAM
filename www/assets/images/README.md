@@ -8,11 +8,25 @@ en `world.json` pondrías:
 "jugador": { "sprite": "assets/images/heroe.png" }
 ```
 
-## ¿No tienes imágenes todavía?
+## Ya incluye imágenes de inicio
 
-¡No pasa nada! El juego funciona igual: donde falte una imagen, el motor dibuja
-un cuadrado de color con un texto (un "marcador de posición"). Cuando añadas la
-imagen real con ese nombre, aparecerá automáticamente.
+Este proyecto trae imágenes sencillas ya generadas (personajes, fondos y
+objetos) para que el juego de ejemplo se vea terminado desde el primer momento.
+Sustitúyelas por tu propio arte cuando quieras: basta con guardar un PNG con el
+**mismo nombre**.
+
+¿Quieres regenerarlas o crear variaciones? Edita y ejecuta el script incluido
+(no necesita instalar nada):
+
+```bash
+node tools/generar-imagenes.mjs
+```
+
+## ¿Borras una imagen y no tienes su reemplazo?
+
+No pasa nada: donde falte una imagen, el motor dibuja un cuadrado de color con
+un texto (un "marcador de posición"). Cuando añadas la imagen real con ese
+nombre, aparecerá automáticamente.
 
 ## Imágenes que usa el juego de ejemplo
 
