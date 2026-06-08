@@ -1,0 +1,66 @@
+{
+  "tap_estrellas": {
+    "tipo": "tap",
+    "titulo": "Atrapa las estrellas",
+    "instrucciones": "Toca las estrellas antes de que desaparezcan. Consigue 10 para ganar la llave.",
+    "duracion": 30,
+    "objetivoPuntos": 10,
+    "spawnIntervalo": 0.8,
+    "vidaObjetivo": 1.5,
+    "sprite": "assets/images/estrella.png",
+    "tamano": 90,
+    "musica": "accion",
+    "textosResultado": {
+      "victoria": "¡Has reunido suficientes estrellas! El cofre se abre y encuentras una llave.",
+      "derrota": "No fueron suficientes. ¡Vuelve a intentarlo!"
+    }
+  },
+
+  "esquiva_rocas": {
+    "tipo": "dodge",
+    "titulo": "Esquiva las rocas",
+    "instrucciones": "Arrastra el dedo para moverte y esquiva las rocas que caen durante 25 segundos.",
+    "duracion": 25,
+    "vidas": 3,
+    "velocidadObstaculos": 260,
+    "intervaloObstaculos": 0.7,
+    "spriteObstaculo": "assets/images/roca.png",
+    "tamanoJugador": 64,
+    "tamanoObstaculo": 56,
+    "musica": "accion",
+    "textosResultado": {
+      "victoria": "¡Sobreviviste! Entre las rocas brilla un amuleto.",
+      "derrota": "Te alcanzaron las rocas. ¡Inténtalo otra vez!"
+    }
+  },
+
+  "quiz_guardian": {
+    "tipo": "quiz",
+    "titulo": "La prueba del guardián",
+    "instrucciones": "Responde correctamente al menos 2 de 3 preguntas.",
+    "objetivoCorrectas": 2,
+    "aleatorio": false,
+    "preguntas": [
+      {
+        "pregunta": "¿Qué necesitabas para entrar al bosque?",
+        "opciones": ["Una espada", "Una llave", "Un mapa"],
+        "correcta": 1
+      },
+      {
+        "pregunta": "¿Quién te dio la primera pista en el pueblo?",
+        "opciones": ["El anciano", "El herrero", "El rey"],
+        "correcta": 0
+      },
+      {
+        "pregunta": "¿Qué objeto brillaba entre las rocas?",
+        "opciones": ["Una moneda", "Un amuleto", "Una flor"],
+        "correcta": 1
+      }
+    ],
+    "musica": "pueblo",
+    "textosResultado": {
+      "victoria": "El guardián asiente. Has demostrado tu valía. ¡Aventura completada!",
+      "derrota": "El guardián niega con la cabeza. Repasa tu aventura e inténtalo de nuevo."
+    }
+  }
+}

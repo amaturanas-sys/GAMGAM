@@ -1,0 +1,22 @@
+{
+  "_comentario": "Asocia un id a cada archivo de sonido. Si el archivo no existe todavía, simplemente no sonará (el juego no falla). Pon tus archivos en assets/audio/.",
+
+  "musica": {
+    "intro": "assets/audio/intro.mp3",
+    "pueblo": "assets/audio/pueblo.mp3",
+    "bosque": "assets/audio/bosque.mp3",
+    "accion": "assets/audio/accion.mp3"
+  },
+
+  "efectos": {
+    "click": "assets/audio/click.wav",
+    "toque": "assets/audio/toque.wav",
+    "exito": "assets/audio/exito.wav",
+    "fallo": "assets/audio/fallo.wav",
+    "golpe": "assets/audio/golpe.wav",
+    "puerta": "assets/audio/puerta.wav"
+  },
+
+  "volumenMusica": 0.55,
+  "volumenEfectos": 0.9
+}

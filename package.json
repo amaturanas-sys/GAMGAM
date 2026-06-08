@@ -1,0 +1,19 @@
+{
+  "name": "gamgam",
+  "version": "1.0.0",
+  "description": "Esqueleto de videojuego para Android, configurable mediante archivos. Crea juegos editando JSON y añadiendo imágenes y sonidos.",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx --yes serve www -l 5173",
+    "android:add": "npx --yes @capacitor/cli add android",
+    "android:sync": "npx --yes @capacitor/cli sync android",
+    "android:open": "npx --yes @capacitor/cli open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}

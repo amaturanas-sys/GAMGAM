@@ -1,0 +1,36 @@
+{
+  "intro_anciano": {
+    "fondo": "assets/images/fondo_pueblo.png",
+    "lineas": [
+      {
+        "personaje": "Anciano",
+        "retrato": "assets/images/npc_anciano.png",
+        "texto": "¡Bienvenido, viajero! Hace tiempo que no veía una cara nueva por aquí."
+      },
+      {
+        "personaje": "Anciano",
+        "retrato": "assets/images/npc_anciano.png",
+        "texto": "El camino al bosque está cerrado. Solo una llave puede abrirlo... y esa llave está dentro del viejo cofre.",
+        "opciones": [
+          { "texto": "¿Cómo abro el cofre?", "ir": "intro_anciano_ayuda" },
+          { "texto": "Iré a investigar", "ir": null }
+        ]
+      }
+    ]
+  },
+
+  "intro_anciano_ayuda": {
+    "lineas": [
+      {
+        "personaje": "Anciano",
+        "retrato": "assets/images/npc_anciano.png",
+        "texto": "Dicen que el cofre solo se abre para quien atrapa suficientes estrellas fugaces. ¡Sé rápido!"
+      },
+      {
+        "personaje": "Anciano",
+        "retrato": "assets/images/npc_anciano.png",
+        "texto": "Cuando tengas la llave, el bosque te esperará. Buena suerte, viajero."
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+# Dependencias
+node_modules/
+
+# Proyecto nativo generado por Capacitor (se regenera con "npm run android:add")
+/android/
+/ios/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+
+# Builds
+dist/
+*.apk
+*.aab
+*.keystore

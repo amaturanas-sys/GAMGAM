@@ -1,0 +1,86 @@
+{
+  "jugador": {
+    "sprite": "assets/images/jugador.png",
+    "velocidad": 210,
+    "tamano": 56
+  },
+
+  "escenarios": {
+    "pueblo": {
+      "nombre": "El Pueblo",
+      "fondo": "assets/images/fondo_pueblo.png",
+      "colorFondo": "#2a3d5c",
+      "musica": "pueblo",
+      "spawn": { "x": 0.5, "y": 0.78 },
+
+      "salidas": [
+        {
+          "x": 0.92, "y": 0.30, "ancho": 0.08, "alto": 0.4,
+          "destino": "bosque",
+          "etiqueta": "Bosque →",
+          "requiere": ["llave_bosque"],
+          "textoBloqueado": "El camino está cerrado. Necesitas una llave."
+        }
+      ],
+
+      "puntos": [
+        {
+          "id": "anciano",
+          "x": 0.24, "y": 0.55,
+          "sprite": "assets/images/npc_anciano.png",
+          "tamano": 64,
+          "etiqueta": "💬 Hablar con el anciano",
+          "accion": { "tipo": "dialogo", "id": "intro_anciano" }
+        },
+        {
+          "id": "reto_tap",
+          "x": 0.68, "y": 0.45,
+          "sprite": "assets/images/cofre.png",
+          "tamano": 60,
+          "etiqueta": "🎮 Atrapar estrellas",
+          "accion": { "tipo": "minijuego", "id": "tap_estrellas" },
+          "recompensa": "llave_bosque"
+        }
+      ]
+    },
+
+    "bosque": {
+      "nombre": "El Bosque",
+      "fondo": "assets/images/fondo_bosque.png",
+      "colorFondo": "#1b3a2b",
+      "musica": "bosque",
+      "spawn": { "x": 0.1, "y": 0.6 },
+
+      "salidas": [
+        {
+          "x": 0.0, "y": 0.30, "ancho": 0.07, "alto": 0.4,
+          "destino": "pueblo",
+          "etiqueta": "← Pueblo"
+        }
+      ],
+
+      "puntos": [
+        {
+          "id": "reto_esquiva",
+          "x": 0.5, "y": 0.42,
+          "sprite": "assets/images/roca.png",
+          "tamano": 60,
+          "etiqueta": "🎮 Esquivar las rocas",
+          "accion": { "tipo": "minijuego", "id": "esquiva_rocas" },
+          "recompensa": "amuleto"
+        },
+        {
+          "id": "guardian",
+          "x": 0.82, "y": 0.5,
+          "sprite": "assets/images/npc_guardian.png",
+          "tamano": 64,
+          "etiqueta": "🎮 Prueba del guardián",
+          "accion": { "tipo": "minijuego", "id": "quiz_guardian" },
+          "requiere": ["amuleto"],
+          "textoBloqueado": "El guardián no te dejará pasar sin el amuleto.",
+          "recompensa": "victoria"
+        }
+      ]
+    }
+  }
+}

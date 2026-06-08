@@ -1,0 +1,25 @@
+{
+  "titulo": "La Llave del Bosque",
+  "subtitulo": "Una mini-aventura de ejemplo hecha con GAMGAM",
+
+  "tema": {
+    "colorPrimario": "#4cc9f0",
+    "colorSecundario": "#f72585",
+    "colorFondo": "#0d1b2a",
+    "colorTexto": "#ffffff",
+    "colorPanel": "rgba(13, 27, 42, 0.92)",
+    "fuente": "system-ui, sans-serif",
+    "radioBordes": 14
+  },
+
+  "controles": {
+    "mundo": "joystick"
+  },
+
+  "pantallaInicio": {
+    "imagenFondo": "assets/images/portada.png",
+    "musica": "intro"
+  },
+
+  "primerEscenario": "pueblo"
+}
