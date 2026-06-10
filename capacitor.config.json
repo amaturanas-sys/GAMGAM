@@ -1,0 +1,11 @@
+{
+  "appId": "com.gamgam.miprimerjuego",
+  "appName": "La Llave del Bosque",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

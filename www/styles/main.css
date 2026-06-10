@@ -1,0 +1,176 @@
+/* main.css — Estilos de la interfaz.
+   Los colores y la fuente vienen del "tema" de config/game.json (variables CSS).
+   Normalmente NO necesitas tocar este archivo para crear tu juego. */
+
+:root {
+  --color-primario: #4cc9f0;
+  --color-secundario: #f72585;
+  --color-fondo: #0d1b2a;
+  --color-texto: #ffffff;
+  --color-panel: rgba(13, 27, 42, 0.92);
+  --fuente: system-ui, sans-serif;
+  --radio: 14px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+#contenedor {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#lienzo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Capa de interfaz (botones, paneles, diálogos) encima del canvas. */
+#ui {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* deja pasar los toques al canvas... */
+}
+#ui > * { pointer-events: auto; } /* ...salvo los elementos de interfaz */
+
+/* --- Botones --- */
+.ui-boton {
+  display: inline-block;
+  margin: 8px 0;
+  padding: 14px 22px;
+  min-width: 180px;
+  border: none;
+  border-radius: var(--radio);
+  background: var(--color-primario);
+  color: #06121f;
+  font-family: var(--fuente);
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: transform 0.08s ease, filter 0.08s ease;
+}
+.ui-boton:active { transform: scale(0.96); filter: brightness(1.1); }
+.ui-boton--grande { font-size: 20px; padding: 18px 28px; }
+.ui-boton--peque { min-width: auto; padding: 9px 14px; font-size: 14px; background: rgba(255,255,255,0.16); color: var(--color-texto); }
+
+/* --- Paneles --- */
+.ui-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  max-width: 88%;
+  padding: 26px;
+  background: var(--color-panel);
+  border-radius: calc(var(--radio) + 6px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+.ui-panel--quiz { width: 92%; max-width: 560px; }
+
+.ui-titulo { font-size: 34px; margin: 0 0 6px; color: var(--color-primario); }
+.ui-titulo--medio { font-size: 26px; margin: 0 0 8px; color: var(--color-primario); }
+.ui-subtitulo { font-size: 16px; opacity: 0.85; margin: 0 0 14px; line-height: 1.4; }
+.ui-mejor { font-size: 14px; opacity: 0.7; margin: 2px 0; }
+.ui-resultado__puntos { font-size: 20px; font-weight: 700; margin: 6px 0; }
+.ui-recompensa { color: var(--color-secundario); font-weight: 700; margin: 8px 0; }
+
+/* --- Barra superior (HUD del mundo / salir del mini-juego) --- */
+.ui-topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  padding-top: calc(10px + env(safe-area-inset-top, 0));
+}
+.ui-topbar__nombre { font-weight: 700; font-size: 16px; opacity: 0.9; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
+
+/* --- Botón flotante de acción (Hablar / Jugar) --- */
+.ui-flotante {
+  position: absolute;
+  left: 50%;
+  bottom: calc(26px + env(safe-area-inset-bottom, 0));
+  transform: translateX(-50%);
+  background: var(--color-secundario);
+  color: #fff;
+  animation: aparecer 0.18s ease;
+}
+.ui-flotante--bloqueado {
+  background: rgba(255,255,255,0.16);
+  color: var(--color-texto);
+  padding: 12px 18px;
+  border-radius: var(--radio);
+  font-weight: 700;
+}
+@keyframes aparecer { from { opacity: 0; transform: translateX(-50%) translateY(8px); } to { opacity: 1; } }
+
+/* --- Diálogo --- */
+.ui-dialogo {
+  position: absolute;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0));
+  transform: translateX(-50%);
+  width: 94%;
+  max-width: 640px;
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  background: var(--color-panel);
+  border-radius: calc(var(--radio) + 4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+.ui-dialogo__retrato img { width: 72px; height: 72px; object-fit: cover; border-radius: var(--radio); }
+.ui-dialogo__cuerpo { flex: 1; }
+.ui-dialogo__nombre { color: var(--color-secundario); font-weight: 800; margin-bottom: 4px; }
+.ui-dialogo__texto { margin: 0 0 8px; line-height: 1.5; font-size: 17px; }
+.ui-dialogo__continuar { font-size: 13px; opacity: 0.55; text-align: right; }
+.ui-dialogo__opciones { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.ui-dialogo__opciones .ui-boton { width: 100%; margin: 0; }
+
+/* --- Quiz --- */
+.ui-quiz__progreso { font-size: 14px; opacity: 0.7; margin-bottom: 8px; }
+.ui-quiz__pregunta { font-size: 20px; margin: 0 0 16px; line-height: 1.4; }
+.ui-quiz__opciones { display: flex; flex-direction: column; gap: 8px; }
+.ui-quiz__opcion { width: 100%; margin: 0; background: rgba(255,255,255,0.14); color: var(--color-texto); text-align: left; }
+.ui-quiz__opcion--correcta { background: #2fbf71 !important; color: #fff !important; }
+.ui-quiz__opcion--incorrecta { background: #e63946 !important; color: #fff !important; }
+
+/* --- Aviso breve --- */
+.ui-aviso {
+  position: absolute;
+  left: 50%; top: 18%;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  background: var(--color-panel);
+  border-radius: var(--radio);
+  font-weight: 700;
+}
+
+/* --- Pantalla de título --- */
+.ui-panel--titulo { gap: 6px; }
+.ui-titulo { text-shadow: 0 3px 14px rgba(0,0,0,0.6); }

@@ -1,0 +1,66 @@
+{
+  "rebusca_chatarra": {
+    "tipo": "tap",
+    "titulo": "Cuota de chatarra",
+    "instrucciones": "Toca los fragmentos aprovechables antes de que el polvo tóxico los cubra. Reúne 10 para cumplir la cuota.",
+    "duracion": 30,
+    "objetivoPuntos": 10,
+    "spawnIntervalo": 0.8,
+    "vidaObjetivo": 1.5,
+    "sprite": "assets/images/estrella.png",
+    "tamano": 90,
+    "musica": "accion",
+    "textosResultado": {
+      "victoria": "Cuota cumplida. El control te registrará por hoy.",
+      "derrota": "No basta. [EL SISTEMA] no perdona una cuota incompleta. Inténtalo de nuevo."
+    }
+  },
+
+  "control_sistema": {
+    "tipo": "quiz",
+    "titulo": "Control de [EL SISTEMA]",
+    "instrucciones": "Responde lo que el control espera oír. Un solo error llama la atención.",
+    "objetivoCorrectas": 2,
+    "aleatorio": false,
+    "preguntas": [
+      {
+        "pregunta": "[LOCUCIÓN]: Declare su propósito en la zona.",
+        "opciones": ["Cumplir mi cuota asignada", "Buscar respuestas", "Prefiero no decirlo"],
+        "correcta": 0
+      },
+      {
+        "pregunta": "[LOCUCIÓN]: ¿Ha presenciado irregularidades?",
+        "opciones": ["Sí, varias", "Ninguna", "No sé qué es eso"],
+        "correcta": 1
+      },
+      {
+        "pregunta": "[LOCUCIÓN]: ¿A quién sirve usted?",
+        "opciones": ["A mí mismo", "A [LA CUADRILLA]", "Al orden de [EL SISTEMA]"],
+        "correcta": 2
+      }
+    ],
+    "musica": "campamento",
+    "textosResultado": {
+      "victoria": "ACCESO CONCEDIDO. El pase del día parpadea en tu muñeca.",
+      "derrota": "RESPUESTA MARCADA PARA REVISIÓN. El control te retiene. Repite el trámite."
+    }
+  },
+
+  "cruce_ruinas": {
+    "tipo": "dodge",
+    "titulo": "Cruzar los escombros",
+    "instrucciones": "Arrastra el dedo para avanzar y esquiva los desprendimientos durante 25 segundos.",
+    "duracion": 25,
+    "vidas": 3,
+    "velocidadObstaculos": 260,
+    "intervaloObstaculos": 0.7,
+    "spriteObstaculo": "assets/images/roca.png",
+    "tamanoJugador": 64,
+    "tamanoObstaculo": 56,
+    "musica": "accion",
+    "textosResultado": {
+      "victoria": "Has cruzado. Al fondo, una compuerta interior que no figura en ningún mapa.",
+      "derrota": "Los escombros te cierran el paso. Recupérate e inténtalo otra vez."
+    }
+  }
+}

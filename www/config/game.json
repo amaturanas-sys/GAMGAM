@@ -1,0 +1,25 @@
+{
+  "titulo": "[TÍTULO DEL JUEGO]",
+  "subtitulo": "Prólogo — la cuadrilla de ruinas",
+
+  "tema": {
+    "colorPrimario": "#5fb0c4",
+    "colorSecundario": "#c44545",
+    "colorFondo": "#0a0e12",
+    "colorTexto": "#e8eef0",
+    "colorPanel": "rgba(10, 14, 18, 0.94)",
+    "fuente": "system-ui, sans-serif",
+    "radioBordes": 8
+  },
+
+  "controles": {
+    "mundo": "joystick"
+  },
+
+  "pantallaInicio": {
+    "imagenFondo": "assets/images/portada.png",
+    "musica": "intro"
+  },
+
+  "primerEscenario": "campamento"
+}
