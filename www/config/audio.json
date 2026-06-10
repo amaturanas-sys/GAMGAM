@@ -3,8 +3,8 @@
 
   "musica": {
     "intro": "assets/audio/intro.mp3",
-    "pueblo": "assets/audio/pueblo.mp3",
-    "bosque": "assets/audio/bosque.mp3",
+    "campamento": "assets/audio/campamento.mp3",
+    "ruinas": "assets/audio/ruinas.mp3",
     "accion": "assets/audio/accion.mp3"
   },
 

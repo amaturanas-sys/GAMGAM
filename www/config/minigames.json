@@ -1,8 +1,8 @@
 {
-  "tap_estrellas": {
+  "rebusca_chatarra": {
     "tipo": "tap",
-    "titulo": "Atrapa las estrellas",
-    "instrucciones": "Toca las estrellas antes de que desaparezcan. Consigue 10 para ganar la llave.",
+    "titulo": "Cuota de chatarra",
+    "instrucciones": "Toca los fragmentos aprovechables antes de que el polvo tóxico los cubra. Reúne 10 para cumplir la cuota.",
     "duracion": 30,
     "objetivoPuntos": 10,
     "spawnIntervalo": 0.8,
@@ -11,15 +11,45 @@
     "tamano": 90,
     "musica": "accion",
     "textosResultado": {
-      "victoria": "¡Has reunido suficientes estrellas! El cofre se abre y encuentras una llave.",
-      "derrota": "No fueron suficientes. ¡Vuelve a intentarlo!"
+      "victoria": "Cuota cumplida. El control te registrará por hoy.",
+      "derrota": "No basta. [EL SISTEMA] no perdona una cuota incompleta. Inténtalo de nuevo."
     }
   },
 
-  "esquiva_rocas": {
+  "control_sistema": {
+    "tipo": "quiz",
+    "titulo": "Control de [EL SISTEMA]",
+    "instrucciones": "Responde lo que el control espera oír. Un solo error llama la atención.",
+    "objetivoCorrectas": 2,
+    "aleatorio": false,
+    "preguntas": [
+      {
+        "pregunta": "[LOCUCIÓN]: Declare su propósito en la zona.",
+        "opciones": ["Cumplir mi cuota asignada", "Buscar respuestas", "Prefiero no decirlo"],
+        "correcta": 0
+      },
+      {
+        "pregunta": "[LOCUCIÓN]: ¿Ha presenciado irregularidades?",
+        "opciones": ["Sí, varias", "Ninguna", "No sé qué es eso"],
+        "correcta": 1
+      },
+      {
+        "pregunta": "[LOCUCIÓN]: ¿A quién sirve usted?",
+        "opciones": ["A mí mismo", "A [LA CUADRILLA]", "Al orden de [EL SISTEMA]"],
+        "correcta": 2
+      }
+    ],
+    "musica": "campamento",
+    "textosResultado": {
+      "victoria": "ACCESO CONCEDIDO. El pase del día parpadea en tu muñeca.",
+      "derrota": "RESPUESTA MARCADA PARA REVISIÓN. El control te retiene. Repite el trámite."
+    }
+  },
+
+  "cruce_ruinas": {
     "tipo": "dodge",
-    "titulo": "Esquiva las rocas",
-    "instrucciones": "Arrastra el dedo para moverte y esquiva las rocas que caen durante 25 segundos.",
+    "titulo": "Cruzar los escombros",
+    "instrucciones": "Arrastra el dedo para avanzar y esquiva los desprendimientos durante 25 segundos.",
     "duracion": 25,
     "vidas": 3,
     "velocidadObstaculos": 260,
@@ -29,38 +59,8 @@
     "tamanoObstaculo": 56,
     "musica": "accion",
     "textosResultado": {
-      "victoria": "¡Sobreviviste! Entre las rocas brilla un amuleto.",
-      "derrota": "Te alcanzaron las rocas. ¡Inténtalo otra vez!"
-    }
-  },
-
-  "quiz_guardian": {
-    "tipo": "quiz",
-    "titulo": "La prueba del guardián",
-    "instrucciones": "Responde correctamente al menos 2 de 3 preguntas.",
-    "objetivoCorrectas": 2,
-    "aleatorio": false,
-    "preguntas": [
-      {
-        "pregunta": "¿Qué necesitabas para entrar al bosque?",
-        "opciones": ["Una espada", "Una llave", "Un mapa"],
-        "correcta": 1
-      },
-      {
-        "pregunta": "¿Quién te dio la primera pista en el pueblo?",
-        "opciones": ["El anciano", "El herrero", "El rey"],
-        "correcta": 0
-      },
-      {
-        "pregunta": "¿Qué objeto brillaba entre las rocas?",
-        "opciones": ["Una moneda", "Un amuleto", "Una flor"],
-        "correcta": 1
-      }
-    ],
-    "musica": "pueblo",
-    "textosResultado": {
-      "victoria": "El guardián asiente. Has demostrado tu valía. ¡Aventura completada!",
-      "derrota": "El guardián niega con la cabeza. Repasa tu aventura e inténtalo de nuevo."
+      "victoria": "Has cruzado. Al fondo, una compuerta interior que no figura en ningún mapa.",
+      "derrota": "Los escombros te cierran el paso. Recupérate e inténtalo otra vez."
     }
   }
 }

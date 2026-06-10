@@ -1,15 +1,15 @@
 {
-  "titulo": "La Llave del Bosque",
-  "subtitulo": "Una mini-aventura de ejemplo hecha con GAMGAM",
+  "titulo": "[TÍTULO DEL JUEGO]",
+  "subtitulo": "Prólogo — la cuadrilla de ruinas",
 
   "tema": {
-    "colorPrimario": "#4cc9f0",
-    "colorSecundario": "#f72585",
-    "colorFondo": "#0d1b2a",
-    "colorTexto": "#ffffff",
-    "colorPanel": "rgba(13, 27, 42, 0.92)",
+    "colorPrimario": "#5fb0c4",
+    "colorSecundario": "#c44545",
+    "colorFondo": "#0a0e12",
+    "colorTexto": "#e8eef0",
+    "colorPanel": "rgba(10, 14, 18, 0.94)",
     "fuente": "system-ui, sans-serif",
-    "radioBordes": 14
+    "radioBordes": 8
   },
 
   "controles": {
@@ -21,5 +21,5 @@
     "musica": "intro"
   },
 
-  "primerEscenario": "pueblo"
+  "primerEscenario": "campamento"
 }

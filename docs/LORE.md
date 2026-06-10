@@ -311,14 +311,39 @@ Universal y obligatoria (ver §2): correa remota + casta visible + condena lenta
 ### Límites de Panspermium
 La selección "natural" no tiene criterio objetivo → es ideología (ver §2, La Tierra hoy).
 
-## 7. Glosario y nombres ⬜ (APARCADO — bautizo pospuesto)
+## 7. Glosario y nombres ⬜ (BAUTIZO EN CURSO — los acuña el autor)
 
-> Decisión: **no fijar nombres todavía**; primero afinar la historia del mundo (§5).
-> Hay un borrador de propuesta de nombres archivado abajo, **sin adoptar**, sólo como
-> material de referencia para cuando retomemos el bautizo.
+> El esqueleto del **Prólogo** ya está volcado a `www/config/` con **marcadores
+> `[ASÍ]`** en cada nombre propio. Acuña aquí los nombres y luego se sustituyen en
+> los config (un buscar-y-reemplazar por marcador). Mientras tanto el juego es
+> jugable y válido: los corchetes se ven en pantalla como texto.
+
+### Marcadores a acuñar (aparecen en los config del Prólogo)
+| Marcador | Qué es | Dónde aparece | Tu nombre |
+|---|---|---|---|
+| `[TÍTULO DEL JUEGO]` | Título de la saga | game.json | … |
+| `[LA CUADRILLA]` | El grupo de trabajo del jugador | world, story, minigames | … |
+| `[MENTOR]` | Compañero veterano que guía al inicio | world, story | … |
+| `[DESIGNACIÓN]` | Cómo nombra el sistema al jugador (código/número) | story | … |
+| `[EL SISTEMA]` | El poder/Consorcio que rige el trabajo | world, story, minigames | … |
+| `[LOCUCIÓN]` | La voz fría del sincitio / control | story, minigames | … |
+| `[LAS RUINAS]` | La zona tóxica de trabajo | world, story | … |
+| `[REASIGNACIÓN]` | Eufemismo oficial de la Siega | story | … |
+
+*(Cuando estén acuñados, marco esta sección ✅ y hago el reemplazo en `www/config/`.)*
+
+### Mapa del Prólogo (lo ya construido en config)
+- **Escenario 1 — Campamento:** hablar con `[MENTOR]` (diálogo) · cumplir la cuota de
+  chatarra (`tap`) → `cuota_dia` · pasar el control de `[EL SISTEMA]` (`quiz`) → `pase_ruinas`.
+- **Salida** Campamento→Ruinas: requiere `pase_ruinas`.
+- **Escenario 2 — Ruinas:** cruzar los escombros (`dodge`) → `interior` · mirar tras la
+  compuerta (diálogo `prologo_grieta`, requiere `interior`) → **la grieta**: el inventario,
+  no las muertes. Bandera final `vio_la_grieta` (gancho al resto de la saga).
+
+---
 
 <details>
-<summary>Borrador de nombres (NO canon — sólo referencia)</summary>
+<summary>Borrador antiguo de nombres (NO canon — solo material de descarte)</summary>
 
 | Concepto | Oficial (sistema) | Márgenes (gente) |
 |---|---|---|

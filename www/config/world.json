@@ -6,79 +6,90 @@
   },
 
   "escenarios": {
-    "pueblo": {
-      "nombre": "El Pueblo",
+    "campamento": {
+      "nombre": "Campamento de [LA CUADRILLA]",
       "fondo": "assets/images/fondo_pueblo.png",
-      "colorFondo": "#2a3d5c",
-      "musica": "pueblo",
-      "spawn": { "x": 0.5, "y": 0.78 },
+      "colorFondo": "#1c232b",
+      "musica": "campamento",
+      "spawn": { "x": 0.5, "y": 0.80 },
 
       "salidas": [
         {
           "x": 0.92, "y": 0.30, "ancho": 0.08, "alto": 0.4,
-          "destino": "bosque",
-          "etiqueta": "Bosque →",
-          "requiere": ["llave_bosque"],
-          "textoBloqueado": "El camino está cerrado. Necesitas una llave."
+          "destino": "ruinas",
+          "etiqueta": "Zona de trabajo →",
+          "requiere": ["pase_ruinas"],
+          "textoBloqueado": "El control no te deja pasar sin el pase del día."
         }
       ],
 
       "puntos": [
         {
-          "id": "anciano",
+          "id": "mentor",
           "x": 0.24, "y": 0.55,
           "sprite": "assets/images/npc_anciano.png",
           "tamano": 64,
-          "etiqueta": "💬 Hablar con el anciano",
-          "accion": { "tipo": "dialogo", "id": "intro_anciano" }
+          "etiqueta": "💬 Hablar con [MENTOR]",
+          "accion": { "tipo": "dialogo", "id": "prologo_mentor" }
         },
         {
-          "id": "reto_tap",
+          "id": "rebusca",
           "x": 0.68, "y": 0.45,
           "sprite": "assets/images/cofre.png",
           "tamano": 60,
-          "etiqueta": "🎮 Atrapar estrellas",
-          "accion": { "tipo": "minijuego", "id": "tap_estrellas" },
-          "recompensa": "llave_bosque"
+          "etiqueta": "🎮 Cumplir la cuota de chatarra",
+          "accion": { "tipo": "minijuego", "id": "rebusca_chatarra" },
+          "recompensa": "cuota_dia"
+        },
+        {
+          "id": "control",
+          "x": 0.5, "y": 0.30,
+          "sprite": "assets/images/npc_guardian.png",
+          "tamano": 64,
+          "etiqueta": "🎮 Pasar el control de [EL SISTEMA]",
+          "accion": { "tipo": "minijuego", "id": "control_sistema" },
+          "requiere": ["cuota_dia"],
+          "textoBloqueado": "El control no te registra hasta que entregues la cuota del día.",
+          "recompensa": "pase_ruinas"
         }
       ]
     },
 
-    "bosque": {
-      "nombre": "El Bosque",
+    "ruinas": {
+      "nombre": "[LAS RUINAS] tóxicas",
       "fondo": "assets/images/fondo_bosque.png",
-      "colorFondo": "#1b3a2b",
-      "musica": "bosque",
+      "colorFondo": "#241c1c",
+      "musica": "ruinas",
       "spawn": { "x": 0.1, "y": 0.6 },
 
       "salidas": [
         {
           "x": 0.0, "y": 0.30, "ancho": 0.07, "alto": 0.4,
-          "destino": "pueblo",
-          "etiqueta": "← Pueblo"
+          "destino": "campamento",
+          "etiqueta": "← Campamento"
         }
       ],
 
       "puntos": [
         {
-          "id": "reto_esquiva",
+          "id": "cruce",
           "x": 0.5, "y": 0.42,
           "sprite": "assets/images/roca.png",
           "tamano": 60,
-          "etiqueta": "🎮 Esquivar las rocas",
-          "accion": { "tipo": "minijuego", "id": "esquiva_rocas" },
-          "recompensa": "amuleto"
+          "etiqueta": "🎮 Cruzar los escombros",
+          "accion": { "tipo": "minijuego", "id": "cruce_ruinas" },
+          "recompensa": "interior"
         },
         {
-          "id": "guardian",
+          "id": "grieta",
           "x": 0.82, "y": 0.5,
           "sprite": "assets/images/npc_guardian.png",
           "tamano": 64,
-          "etiqueta": "🎮 Prueba del guardián",
-          "accion": { "tipo": "minijuego", "id": "quiz_guardian" },
-          "requiere": ["amuleto"],
-          "textoBloqueado": "El guardián no te dejará pasar sin el amuleto.",
-          "recompensa": "victoria"
+          "etiqueta": "💬 Mirar tras la compuerta",
+          "accion": { "tipo": "dialogo", "id": "prologo_grieta" },
+          "requiere": ["interior"],
+          "textoBloqueado": "La compuerta interior está sellada. Habría que cruzar los escombros primero.",
+          "recompensa": "vio_la_grieta"
         }
       ]
     }

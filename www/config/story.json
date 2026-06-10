@@ -1,35 +1,56 @@
 {
-  "intro_anciano": {
+  "prologo_mentor": {
     "fondo": "assets/images/fondo_pueblo.png",
     "lineas": [
       {
-        "personaje": "Anciano",
+        "personaje": "[MENTOR]",
         "retrato": "assets/images/npc_anciano.png",
-        "texto": "¡Bienvenido, viajero! Hace tiempo que no veía una cara nueva por aquí."
+        "texto": "Otro día, otra cuota. Bienvenido a [LAS RUINAS], [DESIGNACIÓN]. Aquí nadie te conoce por tu nombre... si es que aún recuerdas tener uno."
       },
       {
-        "personaje": "Anciano",
+        "personaje": "[MENTOR]",
         "retrato": "assets/images/npc_anciano.png",
-        "texto": "El camino al bosque está cerrado. Solo una llave puede abrirlo... y esa llave está dentro del viejo cofre.",
+        "texto": "Cumple la cuota, pasa el control, y no mires donde no debes. Así se sobrevive.",
         "opciones": [
-          { "texto": "¿Cómo abro el cofre?", "ir": "intro_anciano_ayuda" },
-          { "texto": "Iré a investigar", "ir": null }
+          { "texto": "¿Qué hay tras la zona de trabajo?", "ir": "prologo_mentor_aviso" },
+          { "texto": "Iré a por la cuota.", "ir": null }
         ]
       }
     ]
   },
 
-  "intro_anciano_ayuda": {
+  "prologo_mentor_aviso": {
     "lineas": [
       {
-        "personaje": "Anciano",
+        "personaje": "[MENTOR]",
         "retrato": "assets/images/npc_anciano.png",
-        "texto": "Dicen que el cofre solo se abre para quien atrapa suficientes estrellas fugaces. ¡Sé rápido!"
+        "texto": "Escombros, veneno y cosas que [EL SISTEMA] prefiere que no contemos. Los que preguntan demasiado entran en la siguiente [REASIGNACIÓN]."
       },
       {
-        "personaje": "Anciano",
+        "personaje": "[MENTOR]",
         "retrato": "assets/images/npc_anciano.png",
-        "texto": "Cuando tengas la llave, el bosque te esperará. Buena suerte, viajero."
+        "texto": "Tú haz tu trabajo y vuelve. Eso es todo lo que te pido."
+      }
+    ]
+  },
+
+  "prologo_grieta": {
+    "fondo": "assets/images/fondo_bosque.png",
+    "lineas": [
+      {
+        "personaje": "",
+        "retrato": "assets/images/npc_guardian.png",
+        "texto": "Tras la compuerta no hay escombros. Hay hileras. Camillas ordenadas, numeradas, en silencio."
+      },
+      {
+        "personaje": "[LOCUCIÓN]",
+        "retrato": "assets/images/npc_guardian.png",
+        "texto": "REASIGNACIÓN EN CURSO. INVENTARIO 4471 COMPLETO. GRACIAS POR SU SERVICIO."
+      },
+      {
+        "personaje": "[DESIGNACIÓN]",
+        "retrato": "assets/images/jugador.png",
+        "texto": "No es un cementerio. No documentan muertes. Llevan inventario. ¿Inventario... de qué?"
       }
     ]
   }
