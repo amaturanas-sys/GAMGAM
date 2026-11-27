@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>GAMGAM — Multiplayer FPS (Placeholder)</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Three.js (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+  <!-- Socket.io client (CDN) -->
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Main Menu -->
+    <div id="menu" class="screen active">
+      <div class="panel">
+        <h1>GAMGAM</h1>
+        <p class="subtitle">Multiplayer 1st-Person FPS — Placeholder Phase</p>
+        <div class="field-group">
+          <label>Nickname</label>
+          <input type="text" id="inputNickname" value="Player" maxlength="20" placeholder="Enter nickname" />
+        </div>
+        <div class="field-group">
+          <label>Room</label>
+          <input type="text" id="inputRoom" value="default" maxlength="32" placeholder="Room name" />
+        </div>
+        <button id="btnJoin" class="btn-primary">Join Game</button>
+        <div class="hint">Works on Windows &amp; Android (browser). Desktop: WASD + Mouse. Android: touch controls.</div>
+      </div>
+    </div>
+
+    <!-- In-game HUD -->
+    <div id="hud" class="screen hidden">
+      <div class="crosshair"></div>
+      <div class="hud-layer">
+        <div class="panel panel-health">
+          <div class="label">HEALTH</div>
+          <div class="bar"><div class="fill" id="healthFill"></div></div>
+          <div class="value" id="healthValue">100</div>
+        </div>
+        <div class="panel panel-ammo">
+          <div id="ammoDisplay">30 / 90</div>
+          <div class="ammo-status" id="ammoStatus"></div>
+        </div>
+        <div id="killfeed" class="killfeed"></div>
+      </div>
+      <!-- Mobile touch controls -->
+      <div id="mobileControls" class="mobile-controls hidden">
+        <div class="joystick-wrap" id="joystickWrap">
+          <div class="joystick-base" id="joystickBase"></div>
+          <div class="joystick-stick" id="joystickStick"></div>
+        </div>
+        <div class="buttons-wrap">
+          <button class="touch-btn" id="btnJump">Jump</button>
+          <button class="touch-btn touch-fire" id="btnFire">Fire</button>
+          <button class="touch-btn" id="btnReload">Reload</button>
+        </div>
+        <div class="look-zone" id="lookZone"></div>
+      </div>
+    </div>
+
+    <!-- Death screen -->
+    <div id="deathScreen" class="screen hidden">
+      <div class="panel">
+        <h2>You were eliminated</h2>
+        <div id="deathBy" class="death-by">by <span></span></div>
+        <button id="btnRespawn" class="btn-primary">Respawn</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game scripts (loaded in order) -->
+  <script src="/js/core/Network.js"></script>
+  <script src="/js/core/Input.js"></script>
+  <script src="/js/core/World.js"></script>
+  <script src="/js/core/Weapon.js"></script>
+  <script src="/js/core/Player.js"></script>
+  <script src="/js/core/RemotePlayer.js"></script>
+  <script src="/js/core/Game.js"></script>
+  <script src="/js/ui/HUD.js"></script>
+  <script src="/js/ui/Menu.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
