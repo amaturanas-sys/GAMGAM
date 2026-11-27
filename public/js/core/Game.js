@@ -59,7 +59,16 @@ class Game {
     requestAnimationFrame(this._animate);
   }
 
-  _handleJoin(nickname, roomId) { this.network.join(nickname, roomId); }
+  _handleJoin(nickname, roomId) {
+    this.menu.setJoining(true);
+    this.network.joinWithAck(nickname, roomId, 6000)
+      .then((data) => this._onJoined(data))
+      .catch((err) => {
+        console.error('Join failed:', err);
+        this.menu.setError(err.message || 'Join failed. Is the server running?');
+        this.menu.setJoining(false);
+      });
+  }
 
   _onJoined(data) {
     this.world = new World(this.scene);

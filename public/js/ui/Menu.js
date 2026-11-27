@@ -8,6 +8,7 @@ class Menu {
     this.nick = document.getElementById('inputNickname');
     this.room = document.getElementById('inputRoom');
     this.connStatus = document.getElementById('connStatus');
+    this.errorEl = document.getElementById('joinError');
     this.onJoin = null;
   }
 
@@ -16,18 +17,29 @@ class Menu {
     this.btn.addEventListener('click', () => this._join());
     this.nick.addEventListener('keydown', (e) => { if (e.key === 'Enter') this._join(); });
     this.room.addEventListener('keydown', (e) => { if (e.key === 'Enter') this._join(); });
-    // Auto-focus & pointer lock on first click
     this.screen.addEventListener('click', () => { this.nick.focus(); }, { once: true });
   }
 
-  show() { this.screen.classList.remove('hidden'); this.btn.disabled = false; }
+  show() { this.screen.classList.remove('hidden'); this.btn.disabled = false; this.btn.textContent = 'Join Game'; this.setError(''); }
   hide() { this.screen.classList.add('hidden'); }
+
+  setJoining(joining) {
+    this.btn.disabled = joining;
+    this.btn.textContent = joining ? 'Joining...' : 'Join Game';
+    this.setError('');
+  }
+
+  setError(msg) {
+    if (this.errorEl) {
+      this.errorEl.textContent = msg;
+      this.errorEl.style.display = msg ? 'block' : 'none';
+    }
+  }
 
   _join() {
     const nickname = this.nick.value.trim() || 'Player';
     const roomId = this.room.value.trim() || 'default';
-    this.btn.disabled = true;
-    this.btn.textContent = 'Joining...';
+    this.setError('');
     if (this.onJoin) this.onJoin(nickname, roomId);
   }
 }

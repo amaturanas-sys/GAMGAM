@@ -31,6 +31,9 @@ class Network {
       this.socket.on('reconnect_attempt', () => {
         if (this.onStatusChange) this.onStatusChange('Reconnecting...');
       });
+      this.socket.on('reconnect_failed', () => {
+        if (this.onStatusChange) this.onStatusChange('Connection lost');
+      });
     });
   }
 
@@ -55,6 +58,23 @@ class Network {
 
   emit(event, data) {
     if (this.socket && this.connected) this.socket.emit(event, data);
+  }
+
+  // Join with a timeout so we never get stuck forever on "Joining..."
+  joinWithAck(nickname, roomId, timeoutMs = 6000) {
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        this.off('joined', onJoined);
+        reject(new Error('join timeout — server did not respond'));
+      }, timeoutMs);
+      const onJoined = (data) => {
+        clearTimeout(timer);
+        this.off('joined', onJoined);
+        resolve(data);
+      };
+      this.on('joined', onJoined);
+      this.emit('join', { nickname, roomId });
+    });
   }
 
   join(nickname, roomId) {
