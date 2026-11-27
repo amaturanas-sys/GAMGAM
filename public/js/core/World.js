@@ -41,6 +41,7 @@ class World {
         (obs.min.y + obs.max.y) / 2,
         (obs.min.z + obs.max.z) / 2
       );
+      this.mesh.userData.isWorldObstacle = true;
       this.scene.add(mesh);
       this.meshes.push(mesh);
     }

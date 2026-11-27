@@ -7,6 +7,7 @@ class Menu {
     this.btn = document.getElementById('btnJoin');
     this.nick = document.getElementById('inputNickname');
     this.room = document.getElementById('inputRoom');
+    this.connStatus = document.getElementById('connStatus');
     this.onJoin = null;
   }
 

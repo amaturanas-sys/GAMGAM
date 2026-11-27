@@ -42,6 +42,7 @@ class Game {
     this.menu = new Menu();
 
     this.network = new Network();
+    this.network.onStatusChange = (status) => { this.menu.connStatus.textContent = status; };
     this.network.on('joined', this._onJoined);
     this.network.on('state', this._onState);
     this.network.on('event', this._onEvent);
@@ -82,6 +83,9 @@ class Game {
 
   _removeRemotePlayer(id) {
     const rp = this.remotePlayers.get(id);
+    if (rp) { rp.dispose(); this.remotePlayers.delete(id); }
+  }
+
   _onState(data) {
     const me = data.players.find(p => p.id === (this.network.playerId || this.player?.id));
     if (me) {
@@ -157,5 +161,3 @@ class Game {
     window.removeEventListener('resize', () => this._onResize());
   }
 }
-    if (rp) { rp.dispose(); this.remotePlayers.delete(id); }
-  }

@@ -82,9 +82,9 @@ class Weapon {
   _raycast(origin, direction) {
     const raycaster = new THREE.Raycaster(origin, direction, 0, 100);
     // World obstacles
-    const worldHits = raycaster.intersectObjects(this.scene.children.filter(c => c.isWorldObstacle));
+    const worldHits = raycaster.intersectObjects(this.scene.children.filter(c => c.userData && c.userData.isWorldObstacle));
     // Players
-    const playerHits = raycaster.intersectObjects(this.scene.children.filter(c => c.isRemotePlayer));
+    const playerHits = raycaster.intersectObjects(this.scene.children.filter(c => c.userData && c.userData.isRemotePlayer));
 
     let best = null;
     let bestDist = Infinity;

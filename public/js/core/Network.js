@@ -8,6 +8,7 @@ class Network {
     this.connected = false;
     this.playerId = null;
     this.callbacks = {}; // eventName -> [fn]
+    this.onStatusChange = null; // callback(statusText)
   }
 
   connect(url = '') {
@@ -16,10 +17,20 @@ class Network {
       this.socket.on('connect', () => {
         this.connected = true;
         this._bindDefault();
+        if (this.onStatusChange) this.onStatusChange('Connected');
         resolve();
       });
-      this.socket.on('connect_error', (err) => reject(err));
-      this.socket.on('disconnect', () => { this.connected = false; });
+      this.socket.on('connect_error', (err) => {
+        if (this.onStatusChange) this.onStatusChange('Connection failed: ' + (err && err.message));
+        reject(err);
+      });
+      this.socket.on('disconnect', (reason) => {
+        this.connected = false;
+        if (this.onStatusChange) this.onStatusChange('Disconnected: ' + reason);
+      });
+      this.socket.on('reconnect_attempt', () => {
+        if (this.onStatusChange) this.onStatusChange('Reconnecting...');
+      });
     });
   }
 
